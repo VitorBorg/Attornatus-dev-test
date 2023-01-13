@@ -2,6 +2,7 @@ package com.vitorBorg.Attornatus.service;
 
 import com.vitorBorg.Attornatus.model.PersonModel;
 import com.vitorBorg.Attornatus.repository.PersonRepository;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
