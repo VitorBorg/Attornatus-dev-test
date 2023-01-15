@@ -1,9 +1,10 @@
 package com.vitorBorg.Attornatus.controller;
 
+import com.vitorBorg.Attornatus.DTO.PersonDTO;
 import com.vitorBorg.Attornatus.model.AddressModel;
-import com.vitorBorg.Attornatus.model.PersonModel;
 import com.vitorBorg.Attornatus.service.AddressService;
 import com.vitorBorg.Attornatus.service.PersonService;
+import com.vitorBorg.Attornatus.utils.exception.Response.StringResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,10 +29,10 @@ public class AddressController {
 
     @PostMapping("/address")
     public ResponseEntity<Object> saveAddress(@RequestBody AddressModel addressModel){
-        Optional<PersonModel> personOptional = personService.getPersonById(addressModel.getIdPeople());
+        Optional<PersonDTO> personOptional = personService.getPersonById(addressModel.getIdPerson());
 
-        if(!personOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Person not found.");
+        if(personOptional == null || !personOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new StringResponse("Person not found."));
         }
 
         return ResponseEntity.status(HttpStatus.CREATED).body(addressService.createAddress(addressModel));
@@ -44,20 +45,20 @@ public class AddressController {
 
     @GetMapping("/address/principal/{id}")
     public ResponseEntity<Object> getPrincipalAddress(@PathVariable(value="id") Long id){
-        Optional<PersonModel> personOptional = personService.getPersonById(id);
+        Optional<PersonDTO> personOptional = personService.getPersonById(id);
 
         if(!personOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Person not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new StringResponse("Person not found."));
         }
 
-        if(personOptional.get().getIdPrincipalAddress() == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("This person there is no principal address.");
+        if(personOptional.get().getPrincipalAddress() == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new StringResponse("This person there is no principal address."));
         }
 
-        Optional<AddressModel> addressOptional = addressService.getAddressById((personOptional.get().getIdPrincipalAddress()));
+        Optional<AddressModel> addressOptional = addressService.getAddressById((personOptional.get().getPrincipalAddress().getIdAddress()));
 
         if(!addressOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Address not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new StringResponse("Address not found."));
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(addressOptional.get());
@@ -69,11 +70,11 @@ public class AddressController {
         Optional<AddressModel> addressOptional = addressService.getAddressById(id);
 
         if(!addressOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Address not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new StringResponse("Address not found."));
         }
 
         addressService.deleteAddressById(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Address was successfully deleted.");
+        return ResponseEntity.status(HttpStatus.OK).body(new StringResponse("Address was successfully deleted."));
     }
 
     @PutMapping("address/{id}")
@@ -81,7 +82,7 @@ public class AddressController {
         Optional<AddressModel> addressOptional = addressService.getAddressById(id);
 
         if(!addressOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Address not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new StringResponse("Address not found."));
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(addressService.updateAddressById(addressModel, id));
