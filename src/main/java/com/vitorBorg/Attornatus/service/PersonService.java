@@ -31,7 +31,6 @@ public class PersonService {
 
     public Boolean existPersonByName(String name){
         return personRepository.existsByNamePerson(name);
-
     }
 
     public PersonModel updatePerson(PersonModel personModel, Long id){

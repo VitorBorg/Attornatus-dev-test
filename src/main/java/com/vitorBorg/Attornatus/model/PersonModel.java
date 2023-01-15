@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+
 @Entity
 public class PersonModel {
 
@@ -15,11 +17,9 @@ public class PersonModel {
     private String namePerson;
     @Nullable
     private Long idPrincipalAddress;
-    //@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
-    //private LocalDate birthDatePessoa;
-    private String birthDatePerson;
+    private LocalDate birthDatePerson;
 
-    public PersonModel(Long idPerson, String namePerson, String birthDatePerson, Long idPrincipalAddress) {
+    public PersonModel(Long idPerson, String namePerson, LocalDate birthDatePerson, Long idPrincipalAddress) {
         this.idPerson = idPerson;
         this.namePerson = namePerson;
         this.birthDatePerson = birthDatePerson;
@@ -36,7 +36,7 @@ public class PersonModel {
         return namePerson;
     }
 
-    public String getBirthDatePerson() {
+    public LocalDate getBirthDatePerson() {
         return birthDatePerson;
     }
 
@@ -48,7 +48,7 @@ public class PersonModel {
         this.namePerson = namePerson;
     }
 
-    public void setBirthDatePerson(String birthDatePerson) {
+    public void setBirthDatePerson(LocalDate birthDatePerson) {
         this.birthDatePerson = birthDatePerson;
     }
 
