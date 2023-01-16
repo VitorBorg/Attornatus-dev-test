@@ -73,18 +73,8 @@ public class PersonService {
         return personRepository.save(dbDataPersonOptional.get());
     }
 
-    public boolean deletePerson(Long id){
-        if(!this.getPersonById(id).isPresent()){
-            return false;
-        }
-
+    public void deletePerson(Long id){
         personRepository.deleteById(id);
-
-        if(!this.getPersonById(id).isPresent()){
-            return true;
-        }
-
-        return false;
     }
 
 
