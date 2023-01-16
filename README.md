@@ -16,18 +16,19 @@
 
  body:
 {
-    "namePerson": "Elio",
-    "birthDatePerson": "1998-09-27"
+    "namePerson": "Nome",
+    "birthDatePerson": "2000-01-01"
 }
 
 * /address - Cria um endereço
+
 body:
 {
     "idPerson": "1",
-    "logradouroAddress": "Cidade",
-    "cepAddress": "44477477",
-    "numberAddress": 214,
-    "cityAddress": "Rio Grande"
+    "logradouroAddress": "logradouro",
+    "cepAddress": "000000000",
+    "numberAddress": "000",
+    "cityAddress": "Cidade"
 }
 
 # Get
@@ -41,9 +42,10 @@ body:
 
 # Put
 * /person/`id`- Edita as informações de um usuário específico
+
 body:
 {
-    "namePerson": "Elio",
-    "idPrincipalAddress": "2",
-    "birthDatePerson": "1998-09-27"
+    "namePerson": "Nome",
+    "idPrincipalAddress": "1",
+    "birthDatePerson": "2000-01-01"
 }
