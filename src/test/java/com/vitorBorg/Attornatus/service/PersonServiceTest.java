@@ -12,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Example;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -88,17 +87,6 @@ class PersonServiceTest {
         Boolean response = personService.existPersonByName(personTest.getNamePerson());
 
         assertEquals(true, response);
-    }
-
-    // System.out.println("PRRRRRRRRRRRRRRRRRRRRRRIINT");
-
-    /*@Test
-    void should_not_be_able_to_set_other_person_address_as_principal() {
-    }*/
-
-    @Test
-    void should_be_able_to_return_all_people() {
-        Mockito.when(personRepository.findAll().thenReturn(personTestOptional);
     }
 
     @Test

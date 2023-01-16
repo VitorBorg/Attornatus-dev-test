@@ -9,7 +9,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -50,10 +49,6 @@ class AddressServiceTest {
         assertEquals(response.getLogradouroAddress(), addressModel.getLogradouroAddress());
         assertEquals(response.getCityAddress(), addressModel.getCityAddress());
         assertEquals(response.getNumberAddress(), addressModel.getNumberAddress());
-    }
-
-    @Test
-    void getPeopleAddress() {
     }
 
     @Test
