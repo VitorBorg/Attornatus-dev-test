@@ -8,20 +8,20 @@
 
   Em toda e qualquer etapa do desenvolvimento é importante levar em consideração a qualidade do software.
 
-# Rotas
+## Rotas
 
-* Post
-/person - Cria uma pessoa 
-/address - Cria um endereço
+# Post
+* /person - Cria uma pessoa 
+* /address - Cria um endereço
 
-* Get
-/person - Lista todas as pessoas cadastradas
-/person/`id` - Exibe as informações de um usuário específico
-/address/´id´ - Lista todos os endereços de um usuário específico 
+# Get
+* /person - Lista todas as pessoas cadastradas
+* /person/`id` - Exibe as informações de um usuário específico
+* /address/´id´ - Lista todos os endereços de um usuário específico 
 
-* Delete
-/person/`id` - Exclui um usuário específico
-/address/`id` - Exclui um endereço específico *********
+# Delete
+* /person/`id` - Exclui um usuário específico
+* /address/`id` - Exclui um endereço específico *********
 
-* Put
-/person/`id`- Edita as informações de um usuário específico
+# Put
+* /person/`id`- Edita as informações de um usuário específico
