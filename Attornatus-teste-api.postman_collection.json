@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "24839f6c-dfe5-4414-97bc-bc82a91514ba",
+		"name": "Attornatus-teste-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25110723"
+	},
+	"item": [
+		{
+			"name": "Criar pessoa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"namePerson\": \"Marzia\",\r\n    \"birthDatePerson\": \"1998-09-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4099/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar pessoas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4099/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar pessoa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4099/person/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"person",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletar pessoa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4099/person/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"person",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletar endereço",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4099/person/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"person",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar pessoa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"namePerson\": \"Elio\",\r\n    \"idPrincipalAddress\": \"2\",\r\n    \"birthDatePerson\": \"1998-09-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4099/person/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"person",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "criar endereço",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPeople\": \"1\",\r\n    \"logradouroAddress\": \"Cidade\",\r\n    \"cepAddress\": \"44477477\",\r\n    \"numberAddress\": 214,\r\n    \"cityAddress\": \"Rio Grande\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4099/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar endereços",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4099/address/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"address",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar endereço principal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4099/address/principal/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4099",
+					"path": [
+						"address",
+						"principal",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
