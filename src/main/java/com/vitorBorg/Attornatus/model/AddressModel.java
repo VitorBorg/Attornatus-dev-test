@@ -11,19 +11,19 @@ public class AddressModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long idAddress;
-    private Long idPeople;
+    private Long idPerson;
     private String logradouroAddress;
     private String cepAddress;
     private Integer numberAddress;
     private String cityAddress;
 
-    public AddressModel(Long idAddress, String logradouroAddress, String cepAddress, Integer numberAddress, String cityAddress, long idPeople) {
+    public AddressModel(Long idAddress, String logradouroAddress, String cepAddress, Integer numberAddress, String cityAddress, long idPerson) {
         this.idAddress = idAddress;
         this.logradouroAddress = logradouroAddress;
         this.cepAddress = cepAddress;
         this.numberAddress = numberAddress;
         this.cityAddress = cityAddress;
-        this.idPeople = idPeople;
+        this.idPerson = idPerson;
     }
 
     public AddressModel(){}
@@ -31,8 +31,8 @@ public class AddressModel {
     public Long getIdAddress() {
         return idAddress;
     }
-    public Long getIdPeople() {
-        return idPeople;
+    public Long getIdPerson() {
+        return idPerson;
     }
 
     public String getLogradouroAddress() {
@@ -55,8 +55,8 @@ public class AddressModel {
         this.idAddress = idAddress;
     }
 
-    public void setIdPeople(Long idPeople) {
-        this.idPeople = idPeople;
+    public void setIdPerson(Long idPerson) {
+        this.idPerson = idPerson;
     }
 
     public void setLogradouroAddress(String logradouroAddress) {

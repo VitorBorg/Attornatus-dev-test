@@ -1,4 +1,4 @@
-package com.vitorBorg.Attornatus.exception;
+package com.vitorBorg.Attornatus.utils.exception;
 
 public class DataIntegratyViolationException extends RuntimeException{
     public DataIntegratyViolationException(String message){

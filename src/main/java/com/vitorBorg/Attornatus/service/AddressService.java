@@ -19,7 +19,7 @@ public class AddressService {
         return addressRepository.save(addressModel);
     }
     public Page<AddressModel> getPeopleAddress(Long idPeople, Pageable pageable){
-        return addressRepository.findByIdPeople(idPeople, pageable);
+        return addressRepository.findByIdPerson(idPeople, pageable);
     }
 
     public Optional<AddressModel> getAddressById(Long id){
