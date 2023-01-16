@@ -1,4 +1,4 @@
-package com.vitorBorg.Attornatus.utils.exception.Response;
+package com.vitorBorg.Attornatus.utils.response;
 
 public class StringResponse {
     private String response;

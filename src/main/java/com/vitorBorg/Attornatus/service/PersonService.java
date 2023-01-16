@@ -1,8 +1,9 @@
 package com.vitorBorg.Attornatus.service;
 
+import com.vitorBorg.Attornatus.DTO.PersonDTO;
+import com.vitorBorg.Attornatus.model.AddressModel;
 import com.vitorBorg.Attornatus.model.PersonModel;
 import com.vitorBorg.Attornatus.repository.PersonRepository;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,15 +17,34 @@ public class PersonService {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private AddressService addressService;
+
     public PersonModel createPerson(PersonModel personModel){
         return personRepository.save(personModel);
     }
 
-    public Optional<PersonModel> getPersonById(Long id){
-        Optional<PersonModel> person = personRepository.findById(id);
+    public Optional<PersonDTO> getPersonById(Long id){
+        Optional<PersonModel> personModel = personRepository.findById(id);
+
+        if(!personModel.isPresent()){
+            return null;
+        }
+
+        Optional<AddressModel> addressModel = addressService.getAddressById(id);
+        Optional<PersonDTO> person = Optional.of(new PersonDTO(
+                personModel.get().getIdPerson(),
+                personModel.get().getNamePerson(),
+                personModel.get().getBirthDatePerson(),
+                null
+        ));
+
+        if(addressModel.isPresent()) {
+            person.get().setPrincipalAddress(addressModel.get());
+        }
+
         return person;
     }
-
     public Page<PersonModel> getAllPerson(Pageable pageable){
         return personRepository.findAll(pageable);
     }
@@ -33,11 +53,14 @@ public class PersonService {
         return personRepository.existsByNamePerson(name);
     }
 
+
     public PersonModel updatePerson(PersonModel personModel, Long id){
         Optional<PersonModel> dbDataPersonOptional = personRepository.findById(id);
 
+
         if(!dbDataPersonOptional.isPresent()){
             return null;
+            //return dbDataPersonOptional.orElseThrow(() -> new ObjectNotFoundException("Person not found"));
         }
 
         dbDataPersonOptional.get().setNamePerson(personModel.getNamePerson());
@@ -50,8 +73,18 @@ public class PersonService {
         return personRepository.save(dbDataPersonOptional.get());
     }
 
-    public void deletePerson(Long id){
+    public boolean deletePerson(Long id){
+        if(!this.getPersonById(id).isPresent()){
+            return false;
+        }
+
         personRepository.deleteById(id);
+
+        if(!this.getPersonById(id).isPresent()){
+            return true;
+        }
+
+        return false;
     }
 
 

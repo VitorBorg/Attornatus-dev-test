@@ -5,7 +5,7 @@ import com.vitorBorg.Attornatus.model.AddressModel;
 import com.vitorBorg.Attornatus.model.PersonModel;
 import com.vitorBorg.Attornatus.service.AddressService;
 import com.vitorBorg.Attornatus.service.PersonService;
-import com.vitorBorg.Attornatus.utils.exception.Response.StringResponse;
+import com.vitorBorg.Attornatus.utils.response.StringResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
