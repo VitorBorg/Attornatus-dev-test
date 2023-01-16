@@ -14,10 +14,10 @@ public class AddressModel {
     private Long idPerson;
     private String logradouroAddress;
     private String cepAddress;
-    private Integer numberAddress;
+    private String numberAddress;
     private String cityAddress;
 
-    public AddressModel(Long idAddress, String logradouroAddress, String cepAddress, Integer numberAddress, String cityAddress, long idPerson) {
+    public AddressModel(Long idAddress, String logradouroAddress, String cepAddress, String numberAddress, String cityAddress, long idPerson) {
         this.idAddress = idAddress;
         this.logradouroAddress = logradouroAddress;
         this.cepAddress = cepAddress;
@@ -43,7 +43,7 @@ public class AddressModel {
         return cepAddress;
     }
 
-    public Integer getNumberAddress() {
+    public String getNumberAddress() {
         return numberAddress;
     }
 
@@ -67,7 +67,7 @@ public class AddressModel {
         this.cepAddress = cepAddress;
     }
 
-    public void setNumberAddress(Integer numberAddress) {
+    public void setNumberAddress(String numberAddress) {
         this.numberAddress = numberAddress;
     }
 
